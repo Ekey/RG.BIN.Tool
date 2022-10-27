@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace RG.Unpacker
 {
@@ -30,18 +31,20 @@ namespace RG.Unpacker
                 dwOffset += 4;
             }
 
-            dwBlocks = lpBuffer.Length & 3;
+            Int32 dwRemainedSize = lpBuffer.Length & 3;
 
-            if (dwBlocks != 0)
+            if (dwRemainedSize != 0)
             {
-                for (Int32 i = 0; i < dwBlocks; i++)
+                Byte[] lpKey = BitConverter.GetBytes(dwKey);
+
+                for (Int32 i = 0; i < dwRemainedSize; i++)
                 {
                     dwTempA = dwOffset & 3;
 
-                    lpBuffer[i] ^= (Byte)(dwKey + dwTempA);
-                    lpBuffer[i] ^= (Byte)(dwOffset);
+                    lpBuffer[dwOffset] ^= lpKey[i];
+                    lpBuffer[dwOffset] ^= (Byte)(dwOffset);
 
-                    dwOffset += 1;
+                    ++dwOffset;
                 }
             }
 
