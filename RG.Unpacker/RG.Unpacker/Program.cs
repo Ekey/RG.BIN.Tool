@@ -25,7 +25,7 @@ namespace RG.Unpacker
                 Console.ResetColor();
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("[Examples]");
-                Console.WriteLine("    U4.Unpacker E:\\Games\\RG\\data\\data00.bin D:\\Unpacked");
+                Console.WriteLine("    RG.Unpacker E:\\Games\\RG\\data\\data00.bin D:\\Unpacked");
                 Console.ResetColor();
                 return;
             }
