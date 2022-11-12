@@ -48,7 +48,7 @@ namespace RG.Decoder
             return (UInt16)(bByte2 + (bByte1 << 8));
         }
 
-        public static Byte[] iDecodeData(Byte[] lpBuffer)
+        public static Byte[] iDecompress(Byte[] lpBuffer)
         {
             UInt32 dwOffset = 0;
 

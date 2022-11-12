@@ -19,7 +19,7 @@ namespace RG.Decoder
                     dwEncodedSize = (dwEncodedSize + 3) & 0xFFFFFFFC;
 
                     var lpSrcBlock = TFileStream.ReadBytes((Int32)dwEncodedSize);
-                    var lpDstBlock = DatDecoder.iDecodeData(lpSrcBlock);
+                    var lpDstBlock = DatDecoder.iDecompress(lpSrcBlock);
 
                     String m_FileName = String.Format("Out\\Block_{0}.dat", dwBlockNum++);
 
